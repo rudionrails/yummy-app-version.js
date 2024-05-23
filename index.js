@@ -1,23 +1,31 @@
 const { execSync } = require("child_process");
 
-const gitRevision = () =>
-  execSync("git describe --long")
-    .toString()
-    .match(/^(?<tag>.+)-(?<distance>\d+)-(?<hash>\w{8}).*/).groups;
+function gitRevision() {
+  let revision;
 
-function appVersion() {
-  if ("APP_VERSION" in process.env) {
-    return process.env.APP_VERSION;
+  try {
+    revision = execSync("git describe --tags --long")
+      .toString()
+      .match(/^(?<tag>.+)-(?<distance>\d+)-(?<hash>\w{8}).*/).groups;
+  } catch {
+    revision = { tag: "0.0.0", distance: "0", hash: "" };
   }
 
+  return revision;
+}
+
+function appVersion(options = {}) {
+  const revision = gitRevision();
   const { year, month, day } = new Date()
     .toISOString()
     .match(/^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T.+$/).groups;
-  const { tag, distance, hash } = gitRevision();
 
-  return distance === "0"
-    ? tag
-    : `${tag}-git.${year}${month}${day}.${distance}-${hash}`;
+  let version = [`${revision.tag}-${year}${month}${day}`];
+  if (options.distance && revision.distance !== "0")
+    version.push(revision.distance);
+  if (options.hash) version.push(revision.hash);
+
+  return version.join(".");
 }
 
 module.exports = { appVersion };
