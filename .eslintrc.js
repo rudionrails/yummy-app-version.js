@@ -1,11 +1,11 @@
 module.exports = {
-  extends: ["plugin:prettier/recommended"],
-
-  parserOptions: {
-    ecmaVersion: 2018,
+  extends: ["eslint:recommended", "prettier"],
+  plugins: ["simple-import-sort"],
+  rules: {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
   },
 
-  env: {
-    es6: true,
-  },
+  env: { node: true },
+  parserOptions: { ecmaVersion: "latest" },
 };
