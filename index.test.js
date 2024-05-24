@@ -36,30 +36,18 @@ test("to return the default version when git command fails", () => {
   expect(appVersion()).toEqual(`0.0.0-${date}`);
 });
 
-describe("when distance = true is passed", () => {
-  test("to return the correct version with zero distance", () => {
-    when(childProcess.execSync)
-      .calledWith("git describe --tags --long")
-      .mockReturnValue("1.2.3-0-g6cef876");
+test("to return the correct version when `distance = true` is passed", () => {
+  when(childProcess.execSync)
+    .calledWith("git describe --tags --long")
+    .mockReturnValue("1.2.3-7-g6cef876");
 
-    expect(appVersion()).toEqual(`1.2.3-${date}`);
-  });
-
-  test("to return the correct version with nonzero distance", () => {
-    when(childProcess.execSync)
-      .calledWith("git describe --tags --long")
-      .mockReturnValue("1.2.3-7-g6cef876");
-
-    expect(appVersion({ distance: true })).toEqual(`1.2.3-${date}.7`);
-  });
+  expect(appVersion({ distance: true })).toEqual(`1.2.3-${date}.7`);
 });
 
-describe("when hash = true is passed", () => {
-  test("to return the correct version", () => {
-    when(childProcess.execSync)
-      .calledWith("git describe --tags --long")
-      .mockReturnValue("1.2.3-7-g6cef876");
+test("to return the correct version when `hash = true` is passed", () => {
+  when(childProcess.execSync)
+    .calledWith("git describe --tags --long")
+    .mockReturnValue("1.2.3-7-g6cef876");
 
-    expect(appVersion({ hash: true })).toEqual(`1.2.3-${date}.g6cef876`);
-  });
+  expect(appVersion({ hash: true })).toEqual(`1.2.3-${date}.g6cef876`);
 });

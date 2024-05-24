@@ -20,12 +20,11 @@ function appVersion(options = {}) {
     .toISOString()
     .match(/^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T.+$/).groups;
 
-  let version = [`${revision.tag}-${year}${month}${day}`];
-  if (options.distance && revision.distance !== "0")
-    version.push(revision.distance);
-  if (options.hash) version.push(revision.hash);
+  let version = `${revision.tag}-${year}${month}${day}`;
+  if (options.distance) version = `${version}.${revision.distance}`;
+  if (options.hash) version = `${version}.${revision.hash}`;
 
-  return version.join(".");
+  return version;
 }
 
 module.exports = { appVersion };
