@@ -1,6 +1,6 @@
 {
   "name": "@yummy/app-version",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A yummy library to generate the version of your app automatically from git",
   "main": "index.js",
   "scripts": {

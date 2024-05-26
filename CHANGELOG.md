@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.1](https://github.com/rudionrails/yummy-git-describe.js/compare/v3.0.0...v3.0.1) (2024-05-26)
+
+
+### Bug Fixes
+
+* Correct package spelling in README ([864e905](https://github.com/rudionrails/yummy-git-describe.js/commit/864e905923b8fa7a59e1ea46189eacbea90cfdec))
+
 ## [3.0.0](https://github.com/rudionrails/yummy-git-describe.js/compare/v2.0.0...v3.0.0) (2024-05-26)
 
 
