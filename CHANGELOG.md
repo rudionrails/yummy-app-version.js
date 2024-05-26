@@ -1,6 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [3.0.0](https://github.com/rudionrails/yummy-git-describe.js/compare/v2.0.0...v3.0.0) (2024-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* Adds branch and prefix to options and changes defaults
+
+### Features
+
+* Adds branch and prefix to options and changes defaults ([2f5bdf2](https://github.com/rudionrails/yummy-git-describe.js/commit/2f5bdf245d75690dcae1187e2041184f38ac0aa9))
 
 ## [2.0.0](https://github.com/rudionrails/yummy-git-describe.js/compare/v1.0.0...v2.0.0) (2024-05-24)
 
