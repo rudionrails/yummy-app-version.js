@@ -5,7 +5,7 @@ An opinionated utility to generate a version of the current library / applicatio
 ## Installation
 
 ```shell
-# npm i -D @yummt/app-version
+# npm i -D @yummy/app-version
 ```
 
 ## Usage
