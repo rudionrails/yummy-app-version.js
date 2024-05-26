@@ -56,3 +56,16 @@ const version = appVersion({ distance: true, hash: true });
      git tag  date    |  git hash
                      distance of commits to last tag
 ```
+
+## Development
+
+To release the package, follow those steps
+
+```shell
+# generate changelog and provide git version tag
+# @see https://github.com/absolute-version/commit-and-tag-version for details
+npm run release
+
+# publish to npm
+npm publish --access public
+```
