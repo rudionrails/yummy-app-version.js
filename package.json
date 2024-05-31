@@ -8,7 +8,7 @@
     "prerelease": "npm run lint && npm run test",
     "release": "commit-and-tag-version",
     "test": "jest --coverage",
-    "test:watch": "jest --coverage --watch"
+    "test:watch": "jest --coverage --watch --silent=false"
   },
   "repository": {
     "type": "git",
